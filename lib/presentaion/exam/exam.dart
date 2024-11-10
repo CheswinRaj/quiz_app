@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
+import '../../constants/data.dart';
+
 class Exam extends StatelessWidget {
   const Exam({super.key});
 
@@ -20,10 +22,10 @@ class Exam extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child:
                       ListView.builder(
-                        itemCount: 3,
+                        itemCount: questions.length,
                           // scrollDirection: Axis.horizontal,
                           itemBuilder: (context, count) {
-                            List choice=[null,null,null];
+                            List choice=List.filled(questions.length, null);
                     return StickyHeader(
                       header: Container(
                         color: Colors.blueGrey[700],
@@ -31,7 +33,7 @@ class Exam extends StatelessWidget {
                             horizontal: 16.0, vertical: 10),
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          '${count + 1})  Who sang the title song for the latest Bond film, No Time to Die?',
+                          '${count + 1}) ${questions[count].question}',
                           style: const TextStyle(
                               color: Colors.white, fontSize: 18),
                         ),
@@ -49,7 +51,7 @@ class Exam extends StatelessWidget {
                                 return ListView.builder(
                                   physics: NeverScrollableScrollPhysics(),
                                   shrinkWrap: true,
-                                  itemCount: 3,
+                                  itemCount: questions[count].AnswerChoices.length,
                                   itemBuilder: (context, index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -63,7 +65,7 @@ class Exam extends StatelessWidget {
                                         child: Center(
                                           child: RadioListTile(
                                             selectedTileColor: Colors.red,
-                                              value: index,
+                                              value: questions[count].AnswerChoices[index],
                                               groupValue: choice[count]??null,
                                               onChanged: ( value) {
                                                 setState(() {
@@ -71,7 +73,7 @@ class Exam extends StatelessWidget {
                                                 });
                                               },
                                               title: Text(
-                                                "${index}",
+                                                "${questions[count].AnswerChoices[index]}",
                                                 style: TextStyle(
                                                     fontSize: 15,
                                                     color: Colors.white),
