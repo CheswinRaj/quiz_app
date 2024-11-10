@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/presentaion/mainPage/mainScreen.dart';
+
+import '../exam/exam.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -38,6 +41,10 @@ class LoginScreen extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         // _login(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MainScreen()),
+                        );
                       },
                       child: Text('Login'),
                     ),

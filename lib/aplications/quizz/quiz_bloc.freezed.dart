@@ -65,6 +65,9 @@ class _$QuizEventCopyWithImpl<$Res, $Val extends QuizEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of QuizEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -81,6 +84,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of QuizEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -167,7 +173,9 @@ abstract class _Started implements QuizEvent {
 mixin _$QuizState {
   bool get isLoading => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuizState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuizStateCopyWith<QuizState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -190,6 +198,8 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuizState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -223,6 +233,8 @@ class __$$QuizStateImplCopyWithImpl<$Res>
       _$QuizStateImpl _value, $Res Function(_$QuizStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuizState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -262,7 +274,9 @@ class _$QuizStateImpl implements _QuizState {
   @override
   int get hashCode => Object.hash(runtimeType, isLoading);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuizState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuizStateImplCopyWith<_$QuizStateImpl> get copyWith =>
@@ -274,8 +288,11 @@ abstract class _QuizState implements QuizState {
 
   @override
   bool get isLoading;
+
+  /// Create a copy of QuizState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuizStateImplCopyWith<_$QuizStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
