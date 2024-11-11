@@ -1,3 +1,4 @@
+import '../domain/login/models/student/studentDetail.dart';
 import '../domain/quiz/models/answerChoiceModel/anserChoiceModel.dart';
 import '../domain/quiz/models/questionsModel/quiestionModel.dart';
 
@@ -6,13 +7,13 @@ List<QuestionModel> questions = [
   QuestionModel(
     id: 1,
     question:
-        'Who sang the title song for the latest Bond film, No Time to Die?',
+    'Who sang the title song for the latest Bond film, No Time to Die?',
     AnswerChoices: ["Adele", "Sam Smith", "Billie Eilish"],
   ),
   QuestionModel(
     id: 2,
     question:
-        'Which flies a green, white, and orange (in that order) tricolor flag? ',
+    'Which flies a green, white, and orange (in that order) tricolor flag? ',
     AnswerChoices: ["Ireland", "Ivory Coast", "Italy"],
   ),
   QuestionModel(
@@ -47,14 +48,14 @@ List<QuestionModel> questions = [
   QuestionModel(
     id: 8,
     question:
-        'If you were looking at Iguazu Falls, on what continent would you be?',
+    'If you were looking at Iguazu Falls, on what continent would you be?',
     AnswerChoices: ["Asia", "Africa", "South America"],
 
   ),
   QuestionModel(
     id: 9,
     question:
-        'What number was the Apollo mission that successfully put a man on the moon for the first time in human history?',
+    'What number was the Apollo mission that successfully put a man on the moon for the first time in human history?',
     AnswerChoices: ["Apollo 11", "Apollo 12", "Apollo 13"],
 
   ),
@@ -85,7 +86,7 @@ List<QuestionModel> questions = [
   QuestionModel(
     id: 14,
     question:
-        'What was the name of the Franco-British supersonic commercial plane that operated from 1976-2003?',
+    'What was the name of the Franco-British supersonic commercial plane that operated from 1976-2003?',
     AnswerChoices: ["Accord", "Concorde", "Mirage"],
 
   ),
@@ -122,14 +123,14 @@ List<QuestionModel> questions = [
   QuestionModel(
     id: 20,
     question:
-        'How many plays do people (generally) believe that Shakespeare wrote?',
+    'How many plays do people (generally) believe that Shakespeare wrote?',
     AnswerChoices: ["27", "37", "47"],
 
   ),
   QuestionModel(
     id: 21,
     question:
-        'Which of the following was considered one of the Seven Ancient Wonders?',
+    'Which of the following was considered one of the Seven Ancient Wonders?',
     AnswerChoices: ["Colosseum", "Great Wall of China", "Colossus of Rhodes"],
 
   ),
@@ -192,7 +193,7 @@ List<QuestionModel> questions = [
   QuestionModel(
     id: 30,
     question:
-        'Arnold Schwarzenegger was married to a member of what famous US political family?',
+    'Arnold Schwarzenegger was married to a member of what famous US political family?',
     AnswerChoices: ["The Kennedys", "The Bushes", "The Rockefellers"],
 
   ),
@@ -323,7 +324,6 @@ List<QuestionModel> questions = [
 
   ),
 ];
-
 List<Anserchoicemodel> answers = [
   Anserchoicemodel(id: 1, questionID: 1, Choice: 2),
   Anserchoicemodel(id: 2, questionID: 2, Choice: 0),
@@ -366,7 +366,7 @@ List<Anserchoicemodel> answers = [
   Anserchoicemodel(id: 39, questionID: 39, Choice: 0),
   Anserchoicemodel(id: 40, questionID: 40, Choice: 1),
   Anserchoicemodel(id: 41, questionID: 41, Choice: 0),
-  Anserchoicemodel(id:42, questionID: 42, Choice: 2),
+  Anserchoicemodel(id: 42, questionID: 42, Choice: 2),
   Anserchoicemodel(id: 43, questionID: 43, Choice: 0),
   Anserchoicemodel(id: 44, questionID: 44, Choice: 1),
   Anserchoicemodel(id: 45, questionID: 45, Choice: 2),
@@ -376,4 +376,18 @@ List<Anserchoicemodel> answers = [
   Anserchoicemodel(id: 49, questionID: 49, Choice: 2),
   Anserchoicemodel(id: 50, questionID: 50, Choice: 1),
 
+];
+List<StudentDetaileModel>students = [
+  StudentDetaileModel(id: 's1',
+      name: 'rahul',
+      mobileNummber: 15654989455,
+      password: 123),
+  StudentDetaileModel(id: 's2',
+      name: 'arun',
+      mobileNummber: 4564656213,
+      password: 123),
+  StudentDetaileModel(id: 's3',
+      name: 'divya',
+      mobileNummber: 15654989455,
+      password: 123),
 ];
