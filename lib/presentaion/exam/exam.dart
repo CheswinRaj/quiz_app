@@ -17,12 +17,12 @@ class Exam extends StatefulWidget {
 class _ExamState extends State<Exam> {
   late Timer _timer;
 
-  final ValueNotifier<int> counter = ValueNotifier<int>(1);
+  final ValueNotifier<int> counter = ValueNotifier<int>(30);
 
   void _startQuizTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (counter.value < 30) {
-        counter.value = (counter.value+1);
+      if (counter.value > 0) {
+        counter.value = (counter.value-1);
       } else {
         nextQuestions();
       }
@@ -31,7 +31,7 @@ class _ExamState extends State<Exam> {
 
   void nextQuestions() {
     _timer.cancel();
-    counter.value = 1;
+    counter.value = 30;
     BlocProvider.of<QuizBloc>(context).add(const QuizEvent.changeDisplayQuestion());
     _startQuizTimer();
   }
@@ -58,115 +58,144 @@ class _ExamState extends State<Exam> {
               final width = constraints.maxWidth;
               final height = constraints.maxHeight;
               return state.isStarted
-                  ? Container(
-                      width: width,
-                      height: height,
-                      decoration: BoxDecoration(color: Colors.black),
-                      child: SafeArea(
-                        child: ListView.builder(
-                            // scrollDirection: Axis.horizontal,
-                            itemCount: questions.length,
-                            // scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, count) {
-                              List<String>? choice = state.answers;
-                              return StickyHeader(
-                                header: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8.0,
-                                    right: 8,
-                                  ),
-                                  child: Container(
-                                    padding: const EdgeInsets.all(10),
-                                    width: width,
-
-                                    color: Colors.blueGrey[700],
-                                    // padding: EdgeInsets.symmetric(
-                                    //     horizontal: 16.0, vertical: 10),
-                                    alignment: Alignment.centerLeft,
-
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          '${count + 1}) ${questions[count].question}',
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(color: Colors.white, fontSize: 18),
-                                        ),
-                                       if(state.isDisplayAvaiable[count]) ValueListenableBuilder(
-                                          valueListenable: counter,
-                                          builder: (context, value, child) {
-                                            return Text(
-                                              "timer: ${value.toString()} s",
-                                              style: const TextStyle(color: Colors.redAccent, fontSize: 15,fontWeight: FontWeight.bold),
-                                            );
-                                          },
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                content: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        height: height,
+                  ? Stack(
+                    children: [
+                      Container(
+                          width: width,
+                          height: height,
+                          decoration: BoxDecoration(color: Colors.black),
+                          child: SafeArea(
+                            child: ListView.builder(
+                                // scrollDirection: Axis.horizontal,
+                                itemCount: state.hiveQuestions.length,
+                                // scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, count) {
+                                  List<String>? choice = state.answers;
+                                  return StickyHeader(
+                                    header: Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: 8.0,
+                                        right: 8,
+                                      ),
+                                      child: Container(
+                                        padding: const EdgeInsets.all(10),
                                         width: width,
-                                        color: Colors.white,
+
+                                        color: Colors.blueGrey[700],
+                                        // padding: EdgeInsets.symmetric(
+                                        //     horizontal: 16.0, vertical: 10),
+                                        alignment: Alignment.centerLeft,
+
                                         child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            ListView.builder(
-                                              physics: NeverScrollableScrollPhysics(),
-                                              shrinkWrap: true,
-                                              itemCount: questions[count].AnswerChoices.length,
-                                              itemBuilder: (context, index) {
-                                                return Padding(
-                                                  padding: const EdgeInsets.all(15.0),
-                                                  child: Container(
-                                                    width: width,
-                                                    padding: EdgeInsets.all(10),
-                                                    decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: BorderRadius.circular(20)),
-                                                    child: Center(
-                                                      child: RadioListTile(
-                                                          selectedTileColor: Colors.red,
-                                                          value: questions[count].AnswerChoices[index],
-                                                          groupValue: choice?[count],
-                                                          // state.answers?[count],
-                                                          onChanged: (value) {
-                                                            // print(count);
-                                                            print(state.answers?[count]);
-                                                            BlocProvider.of<QuizBloc>(context).add(QuizEvent.changeAnswer(index: count, answer: value));
-                                                          },
-                                                          title: Text(
-                                                            "${questions[count].AnswerChoices[index]}",
-                                                            style: TextStyle(fontSize: 15, color: Colors.white),
-                                                          )),
-                                                    ),
-                                                  ),
+                                            Text(
+                                              '${count + 1}) ${state.hiveQuestions[count].question}',
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(color: Colors.white, fontSize: 18),
+                                            ),
+                                           if(state.isDisplayAvaiable[count]) ValueListenableBuilder(
+                                              valueListenable: counter,
+                                              builder: (context, value, child) {
+                                                return Text(
+                                                  "timer: ${value.toString()} s",
+                                                  style: const TextStyle(color: Colors.redAccent, fontSize: 15,fontWeight: FontWeight.bold),
                                                 );
                                               },
-                                            ),
+                                            )
                                           ],
                                         ),
                                       ),
-                                      if (state.isDisplayAvaiable[count] == false)
-                                        Container(
-                                          height: height,
-                                          width: width,
-                                          color: Colors.black.withOpacity(.5),
-                                        )
-                                    ],
-                                  ),
+                                    ),
+                                    content: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            height: height,
+                                            width: width,
+                                            color: Colors.white,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                ListView.builder(
+                                                  physics: NeverScrollableScrollPhysics(),
+                                                  shrinkWrap: true,
+                                                  itemCount: state.hiveQuestions[count].AnswerChoices.length,
+                                                  itemBuilder: (context, index) {
+                                                    return Padding(
+                                                      padding: const EdgeInsets.all(15.0),
+                                                      child: Container(
+                                                        width: width,
+                                                        padding: EdgeInsets.all(10),
+                                                        decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: BorderRadius.circular(20)),
+                                                        child: Center(
+                                                          child: RadioListTile(
+                                                              selectedTileColor: Colors.red,
+                                                              value: state.hiveQuestions[count].AnswerChoices[index],
+                                                              groupValue: choice?[count],
+                                                              // state.answers?[count],
+                                                              onChanged: (value) {
+                                                                // print(count);
+                                                                print(state.answers?[count]);
+                                                                BlocProvider.of<QuizBloc>(context).add(QuizEvent.changeAnswer(index: count, answer: value));
+                                                              },
+                                                              title: Text(
+                                                                "${state.hiveQuestions[count].AnswerChoices[index]}",
+                                                                style: TextStyle(fontSize: 15, color: Colors.white),
+                                                              )),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          if (state.isDisplayAvaiable[count] == false)
+                                            Container(
+                                              height: height,
+                                              width: width,
+                                              color: Colors.black.withOpacity(.5),
+                                            )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                }),
+                          ),
+                        ),
+                      Positioned.fill(
+                        bottom: 15,
+                        left: 15,
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child:    InkWell(
+                            onTap: (){
+                              BlocProvider.of<QuizBloc>(context).add(const QuizEvent.canPageChange(canit: true));
+
+                            },
+                            child: Container(
+                              height: height * .04,
+                              width: width * .25,
+                              decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(15)),
+                              child: const Center(
+                                child: Text(
+                                  "stop",
+                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                                 ),
-                              );
-                            }),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    )
+                    ],
+                  )
                   : SizedBox(
                       height: height,
                       child: Center(
                         child: InkWell(
                           onTap: () {
+                            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.canPageChange(canit: false));
                             BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
                             _startQuizTimer();
                           },

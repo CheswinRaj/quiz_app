@@ -1,10 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quiz/constants/data.dart';
 
 import '../../constants/data.dart';
+import '../../domain/login/models/student/studentDetail.dart';
 import '../../domain/quiz/i_quiz_repo.dart';
+import '../../domain/quiz/models/answerChoiceModel/anserChoiceModel.dart';
+import '../../domain/quiz/models/questionsModel/quiestionModel.dart';
 
 part 'quiz_event.dart';
 part 'quiz_state.dart';
@@ -17,10 +21,14 @@ final IQuizRepo _quizRepo ;
     on<_Started>(_onStarted);
     on<_changeAnswer>(_onChangeAnswer);
     on<_changeDisplayQuestion>(_onChangeDisplayQuestion);
+    on<_initialData>(_onInitialData);
+    on<_canPageChange>(_onCanPageChange);
+
 
   }
   void _onStarted(
-      _Started event, Emitter<QuizState> emit){
+      _Started event, Emitter<QuizState> emit)
+  {
    List<String>? tempAnswer=
    // List.filled(questions.length,"");
    List<String>.generate(questions.length, (index) => "");
@@ -32,7 +40,8 @@ final IQuizRepo _quizRepo ;
          isDisplayAvaiable: isDisplayPlay,listTotalCount:isDisplayPlay.length));
   }
 void _onChangeAnswer(
-    _changeAnswer event, Emitter<QuizState> emit){
+    _changeAnswer event, Emitter<QuizState> emit)
+{
   final preAnswer = state.answers;
   final currentAnswer = List<String>.from(preAnswer!); // Create a modifiable copy
   print("pre ${state.answers}");
@@ -41,8 +50,10 @@ void _onChangeAnswer(
   print(currentAnswer);
   emit(state.copyWith(answers: currentAnswer));
 }
+
 void _onChangeDisplayQuestion(
-    _changeDisplayQuestion event, Emitter<QuizState> emit){
+    _changeDisplayQuestion event, Emitter<QuizState> emit)
+{
     int TotalQuestion=state.listTotalCount;
     int nextCount=(state.presentCount+1);
     if(nextCount<=TotalQuestion){
@@ -59,4 +70,23 @@ void _onChangeDisplayQuestion(
       emit(state.copyWith(isDisplayAvaiable: currentDisplay,presentCount:nextCount ));
     }
   }
+
+void _onInitialData(
+    _initialData event, Emitter<QuizState> emit)async{
+  Box  localBox = Hive.box('quiz_app');
+  List<QuestionModel> Questions=await localBox.get('question');
+   List<Anserchoicemodel> Answers=await localBox.get('answer');
+   List<StudentDetaileModel> Students=await localBox.get('studentDetail');
+ // print(Questions);
+ // print(Answers);
+ // print(Students);
+    emit(state.copyWith( hiveAnswers: Answers,hiveQuestions: Questions,hiveStudents: Students));
+  }
+void _onCanPageChange(
+    _canPageChange event, Emitter<QuizState> emit)async{
+  emit(state.copyWith(canPageChange: event.canit));
+  }
 }
+
+
+
