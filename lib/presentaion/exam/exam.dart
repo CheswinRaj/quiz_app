@@ -1,97 +1,190 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz/aplications/quizz/quiz_bloc.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
 import '../../constants/data.dart';
 
-class Exam extends StatelessWidget {
-  const Exam({super.key});
+class Exam extends StatefulWidget {
+  Exam({super.key});
+
+  @override
+  State<Exam> createState() => _ExamState();
+}
+
+class _ExamState extends State<Exam> {
+  late Timer _timer;
+
+  final ValueNotifier<int> counter = ValueNotifier<int>(1);
+
+  void _startQuizTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (counter.value < 30) {
+        counter.value = (counter.value+1);
+      } else {
+        nextQuestions();
+      }
+    });
+  }
+
+  void nextQuestions() {
+    _timer.cancel();
+    counter.value = 1;
+    BlocProvider.of<QuizBloc>(context).add(const QuizEvent.changeDisplayQuestion());
+    _startQuizTimer();
+  }
+
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final width = constraints.maxWidth;
-          final height = constraints.maxHeight;
-          return Container(
-            width: width,
-            height: height,
-            decoration: BoxDecoration(color: Colors.black),
-            child: SafeArea(
-              child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child:
-                      ListView.builder(
-                        itemCount: questions.length,
-                          // scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, count) {
-                            List choice=List.filled(questions.length, null);
-                    return StickyHeader(
-                      header: Container(
-                        color: Colors.blueGrey[700],
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 10),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          '${count + 1}) ${questions[count].question}',
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      content: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: height,
-                          width: width,
-                          color: Colors.white,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              StatefulBuilder(builder: (context, setState) {
-                                return ListView.builder(
-                                  physics: NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: questions[count].AnswerChoices.length,
-                                  itemBuilder: (context, index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+      body: BlocConsumer<QuizBloc, QuizState>(
+        listener: (BuildContext context, QuizState state) {
+          if (state.presentCount > state.listTotalCount) {
+            _timer.cancel();
+          }
+        },
+        builder: (context, state) {
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              final width = constraints.maxWidth;
+              final height = constraints.maxHeight;
+              return state.isStarted
+                  ? Container(
+                      width: width,
+                      height: height,
+                      decoration: BoxDecoration(color: Colors.black),
+                      child: SafeArea(
+                        child: ListView.builder(
+                            // scrollDirection: Axis.horizontal,
+                            itemCount: questions.length,
+                            // scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, count) {
+                              List<String>? choice = state.answers;
+                              return StickyHeader(
+                                header: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 8.0,
+                                    right: 8,
+                                  ),
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    width: width,
+
+                                    color: Colors.blueGrey[700],
+                                    // padding: EdgeInsets.symmetric(
+                                    //     horizontal: 16.0, vertical: 10),
+                                    alignment: Alignment.centerLeft,
+
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          '${count + 1}) ${questions[count].question}',
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(color: Colors.white, fontSize: 18),
+                                        ),
+                                       if(state.isDisplayAvaiable[count]) ValueListenableBuilder(
+                                          valueListenable: counter,
+                                          builder: (context, value, child) {
+                                            return Text(
+                                              "timer: ${value.toString()} s",
+                                              style: const TextStyle(color: Colors.redAccent, fontSize: 15,fontWeight: FontWeight.bold),
+                                            );
+                                          },
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                content: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        height: height,
                                         width: width,
-                                        padding: EdgeInsets.all(10),
-                                        decoration: BoxDecoration(
-                                            color: Colors.blueGrey,
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Center(
-                                          child: RadioListTile(
-                                            selectedTileColor: Colors.red,
-                                              value: questions[count].AnswerChoices[index],
-                                              groupValue: choice[count]??null,
-                                              onChanged: ( value) {
-                                                setState(() {
-                                                  choice[count]=value;
-                                                });
+                                        color: Colors.white,
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            ListView.builder(
+                                              physics: NeverScrollableScrollPhysics(),
+                                              shrinkWrap: true,
+                                              itemCount: questions[count].AnswerChoices.length,
+                                              itemBuilder: (context, index) {
+                                                return Padding(
+                                                  padding: const EdgeInsets.all(15.0),
+                                                  child: Container(
+                                                    width: width,
+                                                    padding: EdgeInsets.all(10),
+                                                    decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: BorderRadius.circular(20)),
+                                                    child: Center(
+                                                      child: RadioListTile(
+                                                          selectedTileColor: Colors.red,
+                                                          value: questions[count].AnswerChoices[index],
+                                                          groupValue: choice?[count],
+                                                          // state.answers?[count],
+                                                          onChanged: (value) {
+                                                            // print(count);
+                                                            print(state.answers?[count]);
+                                                            BlocProvider.of<QuizBloc>(context).add(QuizEvent.changeAnswer(index: count, answer: value));
+                                                          },
+                                                          title: Text(
+                                                            "${questions[count].AnswerChoices[index]}",
+                                                            style: TextStyle(fontSize: 15, color: Colors.white),
+                                                          )),
+                                                    ),
+                                                  ),
+                                                );
                                               },
-                                              title: Text(
-                                                "${questions[count].AnswerChoices[index]}",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.white),
-                                              )),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    );
-                                  },
-                                );
-                              }),
-                            ],
+                                      if (state.isDisplayAvaiable[count] == false)
+                                        Container(
+                                          height: height,
+                                          width: width,
+                                          color: Colors.black.withOpacity(.5),
+                                        )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                    )
+                  : SizedBox(
+                      height: height,
+                      child: Center(
+                        child: InkWell(
+                          onTap: () {
+                            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
+                            _startQuizTimer();
+                          },
+                          child: Container(
+                            height: height * .05,
+                            width: width * .3,
+                            decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+                            child: const Center(
+                              child: Text(
+                                "start",
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     );
-                  })
-              ),
-            ),
+            },
           );
         },
       ),
