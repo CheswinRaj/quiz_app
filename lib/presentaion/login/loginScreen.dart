@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz/aplications/quizz/quiz_bloc.dart';
 import 'package:quiz/presentaion/mainPage/mainScreen.dart';
 
 import '../exam/exam.dart';
@@ -11,6 +13,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
     return Scaffold(
       backgroundColor: Colors.black,
       body: LayoutBuilder(
@@ -19,7 +22,9 @@ class LoginScreen extends StatelessWidget {
           final height = constraints.maxHeight;
           return Transform.scale(
             scale: 1,
-            child: Container(
+            child: BlocBuilder<QuizBloc, QuizState>(
+         builder: (context, state) {
+    return Container(
               width: width,
               height: height,
               decoration: const BoxDecoration(
@@ -35,23 +40,41 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Text("Quiz App",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.black),),
                     SizedBox(height: 30,),
-                    TextField(controller: _loginController, decoration: InputDecoration(labelText: 'Login')),
+                    TextField(controller: _loginController, decoration: InputDecoration(labelText: 'UserName')),
                     TextField(controller: _passwordController, decoration: InputDecoration(labelText: 'Password')),
                    SizedBox(height: 15,),
                     ElevatedButton(
-                      onPressed: () {
-                        // _login(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => MainScreen()),
-                        );
+                      onPressed: () async {
+                        try {
+                          final data = state.hiveStudents.firstWhere(
+                                (element) => element.name == _loginController.text,
+
+                          );
+                          print(data.password);
+                          if ((data.password).toString() == _passwordController.text) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => MainScreen()),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("Invalid password")),
+                            );
+                          }
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("something went wrong ")),
+                          );
+                        }
                       },
                       child: Text('Login'),
                     ),
                   ],
                 ),
               ),
-            ),
+            );
+  },
+),
           );
         },
       ),

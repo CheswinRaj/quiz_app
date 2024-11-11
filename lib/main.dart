@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:quiz/aplications/quizz/quiz_bloc.dart';
+import 'package:quiz/constants/data.dart';
 import 'package:quiz/presentaion/login/loginScreen.dart';
 
 import 'domain/core/injectable.dart';
@@ -21,17 +22,21 @@ void main()async {
   Hive.registerAdapter(QuestionModelAdapter());
   Hive.registerAdapter(StudentAnswerModelAdapter());
   Hive.registerAdapter(StudentDetaileModelAdapter());
-  await Hive.openBox("quiz_app");
+  Box quizBox=await Hive.openBox("quiz_app");
+  await quizBox.put("question", questions);
+  await quizBox.put("studentDetail", students);
+  await quizBox.put("answer", answers);
   runApp( const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
+
   Widget build(BuildContext context) {
+
     return  MultiBlocProvider(
       providers: [
         BlocProvider(create: (context)=>getIt<QuizBloc>())

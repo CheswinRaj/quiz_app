@@ -21,6 +21,8 @@ mixin _$QuizEvent {
     required TResult Function() started,
     required TResult Function() changeDisplayQuestion,
     required TResult Function(int index, dynamic answer) changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(bool canit) canPageChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$QuizEvent {
     TResult? Function()? started,
     TResult? Function()? changeDisplayQuestion,
     TResult? Function(int index, dynamic answer)? changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(bool canit)? canPageChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$QuizEvent {
     TResult Function()? started,
     TResult Function()? changeDisplayQuestion,
     TResult Function(int index, dynamic answer)? changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(bool canit)? canPageChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$QuizEvent {
     required TResult Function(_changeDisplayQuestion value)
         changeDisplayQuestion,
     required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_canPageChange value) canPageChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$QuizEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_canPageChange value)? canPageChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$QuizEvent {
     TResult Function(_Started value)? started,
     TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_canPageChange value)? canPageChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function() changeDisplayQuestion,
     required TResult Function(int index, dynamic answer) changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(bool canit) canPageChange,
   }) {
     return started();
   }
@@ -131,6 +145,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function()? changeDisplayQuestion,
     TResult? Function(int index, dynamic answer)? changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(bool canit)? canPageChange,
   }) {
     return started?.call();
   }
@@ -141,6 +157,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function()? changeDisplayQuestion,
     TResult Function(int index, dynamic answer)? changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(bool canit)? canPageChange,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -156,6 +174,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_changeDisplayQuestion value)
         changeDisplayQuestion,
     required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_canPageChange value) canPageChange,
   }) {
     return started(this);
   }
@@ -166,6 +186,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_canPageChange value)? canPageChange,
   }) {
     return started?.call(this);
   }
@@ -176,6 +198,8 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_canPageChange value)? canPageChange,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -232,6 +256,8 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     required TResult Function() started,
     required TResult Function() changeDisplayQuestion,
     required TResult Function(int index, dynamic answer) changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(bool canit) canPageChange,
   }) {
     return changeDisplayQuestion();
   }
@@ -242,6 +268,8 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult? Function()? started,
     TResult? Function()? changeDisplayQuestion,
     TResult? Function(int index, dynamic answer)? changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(bool canit)? canPageChange,
   }) {
     return changeDisplayQuestion?.call();
   }
@@ -252,6 +280,8 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult Function()? started,
     TResult Function()? changeDisplayQuestion,
     TResult Function(int index, dynamic answer)? changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(bool canit)? canPageChange,
     required TResult orElse(),
   }) {
     if (changeDisplayQuestion != null) {
@@ -267,6 +297,8 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     required TResult Function(_changeDisplayQuestion value)
         changeDisplayQuestion,
     required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_canPageChange value) canPageChange,
   }) {
     return changeDisplayQuestion(this);
   }
@@ -277,6 +309,8 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult? Function(_Started value)? started,
     TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_canPageChange value)? canPageChange,
   }) {
     return changeDisplayQuestion?.call(this);
   }
@@ -287,6 +321,8 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult Function(_Started value)? started,
     TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_canPageChange value)? canPageChange,
     required TResult orElse(),
   }) {
     if (changeDisplayQuestion != null) {
@@ -376,6 +412,8 @@ class _$changeAnswerImpl implements _changeAnswer {
     required TResult Function() started,
     required TResult Function() changeDisplayQuestion,
     required TResult Function(int index, dynamic answer) changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(bool canit) canPageChange,
   }) {
     return changeAnswer(index, answer);
   }
@@ -386,6 +424,8 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult? Function()? started,
     TResult? Function()? changeDisplayQuestion,
     TResult? Function(int index, dynamic answer)? changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(bool canit)? canPageChange,
   }) {
     return changeAnswer?.call(index, answer);
   }
@@ -396,6 +436,8 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult Function()? started,
     TResult Function()? changeDisplayQuestion,
     TResult Function(int index, dynamic answer)? changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(bool canit)? canPageChange,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -411,6 +453,8 @@ class _$changeAnswerImpl implements _changeAnswer {
     required TResult Function(_changeDisplayQuestion value)
         changeDisplayQuestion,
     required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_canPageChange value) canPageChange,
   }) {
     return changeAnswer(this);
   }
@@ -421,6 +465,8 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult? Function(_Started value)? started,
     TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_canPageChange value)? canPageChange,
   }) {
     return changeAnswer?.call(this);
   }
@@ -431,6 +477,8 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult Function(_Started value)? started,
     TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
     TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_canPageChange value)? canPageChange,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -453,6 +501,280 @@ abstract class _changeAnswer implements QuizEvent {
 }
 
 /// @nodoc
+abstract class _$$initialDataImplCopyWith<$Res> {
+  factory _$$initialDataImplCopyWith(
+          _$initialDataImpl value, $Res Function(_$initialDataImpl) then) =
+      __$$initialDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$initialDataImplCopyWithImpl<$Res>
+    extends _$QuizEventCopyWithImpl<$Res, _$initialDataImpl>
+    implements _$$initialDataImplCopyWith<$Res> {
+  __$$initialDataImplCopyWithImpl(
+      _$initialDataImpl _value, $Res Function(_$initialDataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$initialDataImpl implements _initialData {
+  const _$initialDataImpl();
+
+  @override
+  String toString() {
+    return 'QuizEvent.initialData()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$initialDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() changeDisplayQuestion,
+    required TResult Function(int index, dynamic answer) changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(bool canit) canPageChange,
+  }) {
+    return initialData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? changeDisplayQuestion,
+    TResult? Function(int index, dynamic answer)? changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(bool canit)? canPageChange,
+  }) {
+    return initialData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? changeDisplayQuestion,
+    TResult Function(int index, dynamic answer)? changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(bool canit)? canPageChange,
+    required TResult orElse(),
+  }) {
+    if (initialData != null) {
+      return initialData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_changeDisplayQuestion value)
+        changeDisplayQuestion,
+    required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_canPageChange value) canPageChange,
+  }) {
+    return initialData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
+    TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_canPageChange value)? canPageChange,
+  }) {
+    return initialData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
+    TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_canPageChange value)? canPageChange,
+    required TResult orElse(),
+  }) {
+    if (initialData != null) {
+      return initialData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _initialData implements QuizEvent {
+  const factory _initialData() = _$initialDataImpl;
+}
+
+/// @nodoc
+abstract class _$$canPageChangeImplCopyWith<$Res> {
+  factory _$$canPageChangeImplCopyWith(
+          _$canPageChangeImpl value, $Res Function(_$canPageChangeImpl) then) =
+      __$$canPageChangeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool canit});
+}
+
+/// @nodoc
+class __$$canPageChangeImplCopyWithImpl<$Res>
+    extends _$QuizEventCopyWithImpl<$Res, _$canPageChangeImpl>
+    implements _$$canPageChangeImplCopyWith<$Res> {
+  __$$canPageChangeImplCopyWithImpl(
+      _$canPageChangeImpl _value, $Res Function(_$canPageChangeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? canit = null,
+  }) {
+    return _then(_$canPageChangeImpl(
+      canit: null == canit
+          ? _value.canit
+          : canit // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$canPageChangeImpl implements _canPageChange {
+  const _$canPageChangeImpl({required this.canit});
+
+  @override
+  final bool canit;
+
+  @override
+  String toString() {
+    return 'QuizEvent.canPageChange(canit: $canit)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$canPageChangeImpl &&
+            (identical(other.canit, canit) || other.canit == canit));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, canit);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$canPageChangeImplCopyWith<_$canPageChangeImpl> get copyWith =>
+      __$$canPageChangeImplCopyWithImpl<_$canPageChangeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() changeDisplayQuestion,
+    required TResult Function(int index, dynamic answer) changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(bool canit) canPageChange,
+  }) {
+    return canPageChange(canit);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? changeDisplayQuestion,
+    TResult? Function(int index, dynamic answer)? changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(bool canit)? canPageChange,
+  }) {
+    return canPageChange?.call(canit);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? changeDisplayQuestion,
+    TResult Function(int index, dynamic answer)? changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(bool canit)? canPageChange,
+    required TResult orElse(),
+  }) {
+    if (canPageChange != null) {
+      return canPageChange(canit);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_changeDisplayQuestion value)
+        changeDisplayQuestion,
+    required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_canPageChange value) canPageChange,
+  }) {
+    return canPageChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
+    TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_canPageChange value)? canPageChange,
+  }) {
+    return canPageChange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
+    TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_canPageChange value)? canPageChange,
+    required TResult orElse(),
+  }) {
+    if (canPageChange != null) {
+      return canPageChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _canPageChange implements QuizEvent {
+  const factory _canPageChange({required final bool canit}) =
+      _$canPageChangeImpl;
+
+  bool get canit;
+  @JsonKey(ignore: true)
+  _$$canPageChangeImplCopyWith<_$canPageChangeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$QuizState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isStarted => throw _privateConstructorUsedError;
@@ -460,6 +782,11 @@ mixin _$QuizState {
   List<bool> get isDisplayAvaiable => throw _privateConstructorUsedError;
   int get listTotalCount => throw _privateConstructorUsedError;
   int get presentCount => throw _privateConstructorUsedError;
+  List<QuestionModel> get hiveQuestions => throw _privateConstructorUsedError;
+  List<Anserchoicemodel> get hiveAnswers => throw _privateConstructorUsedError;
+  List<StudentDetaileModel> get hiveStudents =>
+      throw _privateConstructorUsedError;
+  bool get canPageChange => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuizStateCopyWith<QuizState> get copyWith =>
@@ -477,7 +804,11 @@ abstract class $QuizStateCopyWith<$Res> {
       List<String>? answers,
       List<bool> isDisplayAvaiable,
       int listTotalCount,
-      int presentCount});
+      int presentCount,
+      List<QuestionModel> hiveQuestions,
+      List<Anserchoicemodel> hiveAnswers,
+      List<StudentDetaileModel> hiveStudents,
+      bool canPageChange});
 }
 
 /// @nodoc
@@ -499,6 +830,10 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
     Object? isDisplayAvaiable = null,
     Object? listTotalCount = null,
     Object? presentCount = null,
+    Object? hiveQuestions = null,
+    Object? hiveAnswers = null,
+    Object? hiveStudents = null,
+    Object? canPageChange = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -525,6 +860,22 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
           ? _value.presentCount
           : presentCount // ignore: cast_nullable_to_non_nullable
               as int,
+      hiveQuestions: null == hiveQuestions
+          ? _value.hiveQuestions
+          : hiveQuestions // ignore: cast_nullable_to_non_nullable
+              as List<QuestionModel>,
+      hiveAnswers: null == hiveAnswers
+          ? _value.hiveAnswers
+          : hiveAnswers // ignore: cast_nullable_to_non_nullable
+              as List<Anserchoicemodel>,
+      hiveStudents: null == hiveStudents
+          ? _value.hiveStudents
+          : hiveStudents // ignore: cast_nullable_to_non_nullable
+              as List<StudentDetaileModel>,
+      canPageChange: null == canPageChange
+          ? _value.canPageChange
+          : canPageChange // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -543,7 +894,11 @@ abstract class _$$QuizStateImplCopyWith<$Res>
       List<String>? answers,
       List<bool> isDisplayAvaiable,
       int listTotalCount,
-      int presentCount});
+      int presentCount,
+      List<QuestionModel> hiveQuestions,
+      List<Anserchoicemodel> hiveAnswers,
+      List<StudentDetaileModel> hiveStudents,
+      bool canPageChange});
 }
 
 /// @nodoc
@@ -563,6 +918,10 @@ class __$$QuizStateImplCopyWithImpl<$Res>
     Object? isDisplayAvaiable = null,
     Object? listTotalCount = null,
     Object? presentCount = null,
+    Object? hiveQuestions = null,
+    Object? hiveAnswers = null,
+    Object? hiveStudents = null,
+    Object? canPageChange = null,
   }) {
     return _then(_$QuizStateImpl(
       isLoading: null == isLoading
@@ -589,6 +948,22 @@ class __$$QuizStateImplCopyWithImpl<$Res>
           ? _value.presentCount
           : presentCount // ignore: cast_nullable_to_non_nullable
               as int,
+      hiveQuestions: null == hiveQuestions
+          ? _value._hiveQuestions
+          : hiveQuestions // ignore: cast_nullable_to_non_nullable
+              as List<QuestionModel>,
+      hiveAnswers: null == hiveAnswers
+          ? _value._hiveAnswers
+          : hiveAnswers // ignore: cast_nullable_to_non_nullable
+              as List<Anserchoicemodel>,
+      hiveStudents: null == hiveStudents
+          ? _value._hiveStudents
+          : hiveStudents // ignore: cast_nullable_to_non_nullable
+              as List<StudentDetaileModel>,
+      canPageChange: null == canPageChange
+          ? _value.canPageChange
+          : canPageChange // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -602,9 +977,16 @@ class _$QuizStateImpl implements _QuizState {
       required final List<String>? answers,
       required final List<bool> isDisplayAvaiable,
       required this.listTotalCount,
-      required this.presentCount})
+      required this.presentCount,
+      required final List<QuestionModel> hiveQuestions,
+      required final List<Anserchoicemodel> hiveAnswers,
+      required final List<StudentDetaileModel> hiveStudents,
+      required this.canPageChange})
       : _answers = answers,
-        _isDisplayAvaiable = isDisplayAvaiable;
+        _isDisplayAvaiable = isDisplayAvaiable,
+        _hiveQuestions = hiveQuestions,
+        _hiveAnswers = hiveAnswers,
+        _hiveStudents = hiveStudents;
 
   @override
   final bool isLoading;
@@ -633,10 +1015,36 @@ class _$QuizStateImpl implements _QuizState {
   final int listTotalCount;
   @override
   final int presentCount;
+  final List<QuestionModel> _hiveQuestions;
+  @override
+  List<QuestionModel> get hiveQuestions {
+    if (_hiveQuestions is EqualUnmodifiableListView) return _hiveQuestions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hiveQuestions);
+  }
+
+  final List<Anserchoicemodel> _hiveAnswers;
+  @override
+  List<Anserchoicemodel> get hiveAnswers {
+    if (_hiveAnswers is EqualUnmodifiableListView) return _hiveAnswers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hiveAnswers);
+  }
+
+  final List<StudentDetaileModel> _hiveStudents;
+  @override
+  List<StudentDetaileModel> get hiveStudents {
+    if (_hiveStudents is EqualUnmodifiableListView) return _hiveStudents;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hiveStudents);
+  }
+
+  @override
+  final bool canPageChange;
 
   @override
   String toString() {
-    return 'QuizState(isLoading: $isLoading, isStarted: $isStarted, answers: $answers, isDisplayAvaiable: $isDisplayAvaiable, listTotalCount: $listTotalCount, presentCount: $presentCount)';
+    return 'QuizState(isLoading: $isLoading, isStarted: $isStarted, answers: $answers, isDisplayAvaiable: $isDisplayAvaiable, listTotalCount: $listTotalCount, presentCount: $presentCount, hiveQuestions: $hiveQuestions, hiveAnswers: $hiveAnswers, hiveStudents: $hiveStudents, canPageChange: $canPageChange)';
   }
 
   @override
@@ -654,7 +1062,15 @@ class _$QuizStateImpl implements _QuizState {
             (identical(other.listTotalCount, listTotalCount) ||
                 other.listTotalCount == listTotalCount) &&
             (identical(other.presentCount, presentCount) ||
-                other.presentCount == presentCount));
+                other.presentCount == presentCount) &&
+            const DeepCollectionEquality()
+                .equals(other._hiveQuestions, _hiveQuestions) &&
+            const DeepCollectionEquality()
+                .equals(other._hiveAnswers, _hiveAnswers) &&
+            const DeepCollectionEquality()
+                .equals(other._hiveStudents, _hiveStudents) &&
+            (identical(other.canPageChange, canPageChange) ||
+                other.canPageChange == canPageChange));
   }
 
   @override
@@ -665,7 +1081,11 @@ class _$QuizStateImpl implements _QuizState {
       const DeepCollectionEquality().hash(_answers),
       const DeepCollectionEquality().hash(_isDisplayAvaiable),
       listTotalCount,
-      presentCount);
+      presentCount,
+      const DeepCollectionEquality().hash(_hiveQuestions),
+      const DeepCollectionEquality().hash(_hiveAnswers),
+      const DeepCollectionEquality().hash(_hiveStudents),
+      canPageChange);
 
   @JsonKey(ignore: true)
   @override
@@ -681,7 +1101,11 @@ abstract class _QuizState implements QuizState {
       required final List<String>? answers,
       required final List<bool> isDisplayAvaiable,
       required final int listTotalCount,
-      required final int presentCount}) = _$QuizStateImpl;
+      required final int presentCount,
+      required final List<QuestionModel> hiveQuestions,
+      required final List<Anserchoicemodel> hiveAnswers,
+      required final List<StudentDetaileModel> hiveStudents,
+      required final bool canPageChange}) = _$QuizStateImpl;
 
   @override
   bool get isLoading;
@@ -695,6 +1119,14 @@ abstract class _QuizState implements QuizState {
   int get listTotalCount;
   @override
   int get presentCount;
+  @override
+  List<QuestionModel> get hiveQuestions;
+  @override
+  List<Anserchoicemodel> get hiveAnswers;
+  @override
+  List<StudentDetaileModel> get hiveStudents;
+  @override
+  bool get canPageChange;
   @override
   @JsonKey(ignore: true)
   _$$QuizStateImplCopyWith<_$QuizStateImpl> get copyWith =>

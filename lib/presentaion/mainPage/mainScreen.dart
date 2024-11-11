@@ -2,6 +2,8 @@ import 'dart:core';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz/aplications/quizz/quiz_bloc.dart';
 
 import '../account/account.dart';
 import '../dashboard/dashBoard.dart';
@@ -17,28 +19,38 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _page = 0;
 
-  List<Widget>pages=[Dashboard(),Exam(),Account()];
+  List<Widget>pages = [Dashboard(), Exam(), Account()];
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 55,
-        buttonBackgroundColor: Colors.blueGrey,
-        color: Colors.black87,
-        backgroundColor:Colors.blue ,
-        key: _bottomNavigationKey,
-        items: <Widget>[
-          Icon(Icons.dashboard, size: 30,color: Colors.white,),
-          Icon(Icons.computer, size: 30,color: Colors.white,),
-          Icon(Icons.person, size: 30,color: Colors.white,),
-        ],
-        onTap: (index) {
-          setState(() {
-            _page = index;
-          });
-        },
-      ),
-      body:pages[_page],);
+    return BlocBuilder<QuizBloc, QuizState>(
+      builder: (context, state) {
+        return Scaffold(
+          bottomNavigationBar: CurvedNavigationBar(
+            letIndexChange:(value) {
+              return state.canPageChange;
+            },
+            height: 55,
+            buttonBackgroundColor: Colors.blueGrey,
+            color: Colors.black87,
+            backgroundColor: Colors.blue,
+            key: _bottomNavigationKey,
+            items: <Widget>[
+              Icon(Icons.dashboard, size: 30, color: Colors.white,),
+              Icon(Icons.computer, size: 30, color: Colors.white,),
+              Icon(Icons.person, size: 30, color: Colors.white,),
+            ],
+            onTap: (index) {
+
+                setState(() {
+                  _page = index;
+                });
+
+            },
+          ),
+          body: pages[_page],);
+      },
+    );
   }
 }
