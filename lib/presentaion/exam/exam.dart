@@ -8,7 +8,7 @@ import 'package:sticky_headers/sticky_headers/widget.dart';
 import '../../constants/data.dart';
 
 class Exam extends StatefulWidget {
-  Exam({super.key});
+  const Exam({super.key});
 
   @override
   State<Exam> createState() => _ExamState();
@@ -18,11 +18,15 @@ class _ExamState extends State<Exam> {
   late Timer _timer;
 
   final ValueNotifier<int> counter = ValueNotifier<int>(30);
-
+  final ValueNotifier<int> totalFinished = ValueNotifier<int>(1);
   void _startQuizTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (counter.value > 0) {
+
         counter.value = (counter.value-1);
+        totalFinished.value = (totalFinished.value+1);
+        BlocProvider.of<QuizBloc>(context).add(QuizEvent.completedQuestion(value:totalFinished.value ));
+        print(counter.value);
       } else {
         nextQuestions();
       }
@@ -50,6 +54,11 @@ class _ExamState extends State<Exam> {
         listener: (BuildContext context, QuizState state) {
           if (state.presentCount > state.listTotalCount) {
             _timer.cancel();
+          }
+          if(state.hiveQuestions.length==state.finishedQuestion&&state.isStarted){
+            _timer.cancel();
+            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.saveData());
+
           }
         },
         builder: (context, state) {
@@ -113,7 +122,7 @@ class _ExamState extends State<Exam> {
                                           Container(
                                             height: height,
                                             width: width,
-                                            color: Colors.white,
+                                           decoration: BoxDecoration( color: Colors.white,image: DecorationImage(fit: BoxFit.fill,image: NetworkImage("https://thumbs.dreamstime.com/b/notebook-cover-page-stains-dark-borders-old-dirt-folds-80926864.jpg"))),
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
@@ -171,8 +180,9 @@ class _ExamState extends State<Exam> {
                           alignment: Alignment.bottomLeft,
                           child:    InkWell(
                             onTap: (){
-                              BlocProvider.of<QuizBloc>(context).add(const QuizEvent.canPageChange(canit: true));
-
+                              // BlocProvider.of<QuizBloc>(context).add(const QuizEvent.canPageChange(canit: true));
+                              BlocProvider.of<QuizBloc>(context).add(const QuizEvent.stopTest());
+_timer.cancel();
                             },
                             child: Container(
                               height: height * .04,
@@ -195,9 +205,10 @@ class _ExamState extends State<Exam> {
                       child: Center(
                         child: InkWell(
                           onTap: () {
-                            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.canPageChange(canit: false));
-                            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
+
+
                             _startQuizTimer();
+                            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
                           },
                           child: Container(
                             height: height * .05,

@@ -5,6 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:quiz/aplications/quizz/quiz_bloc.dart';
 import 'package:quiz/constants/data.dart';
 import 'package:quiz/presentaion/login/loginScreen.dart';
+import 'package:quiz/presentaion/mainPage/mainScreen.dart';
 
 import 'domain/core/injectable.dart';
 import 'domain/login/models/loginModel.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home:   LoginScreen(),
+          home:   MainScreen(),
 
       ),
     );

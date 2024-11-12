@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
+    // BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
     return Scaffold(
       backgroundColor: Colors.black,
       body: LayoutBuilder(
