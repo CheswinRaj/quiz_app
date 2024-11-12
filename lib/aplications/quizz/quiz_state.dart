@@ -13,6 +13,7 @@ class QuizState with _$QuizState {
     required List<Anserchoicemodel> hiveAnswers,
     required List<StudentDetaileModel>hiveStudents,
     required bool canPageChange,
+    required int finishedQuestion,
   }) = _QuizState;
 
   factory QuizState.initial() {
@@ -20,7 +21,8 @@ class QuizState with _$QuizState {
       isLoading: true,
       isStarted: false,
       answers: [],
-      isDisplayAvaiable: [], listTotalCount: 0,presentCount:1, hiveQuestions: [], hiveAnswers: [], hiveStudents: [], canPageChange: true,
+      isDisplayAvaiable: [], listTotalCount: 0,presentCount:1, hiveQuestions: [], hiveAnswers: [], hiveStudents: [],
+      canPageChange: true, finishedQuestion: 0,
 
     );
   }

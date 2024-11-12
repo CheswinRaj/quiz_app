@@ -24,6 +24,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
     return BlocBuilder<QuizBloc, QuizState>(
       builder: (context, state) {
         return Scaffold(
@@ -36,7 +37,7 @@ class _MainScreenState extends State<MainScreen> {
             color: Colors.black87,
             backgroundColor: Colors.blue,
             key: _bottomNavigationKey,
-            items: <Widget>[
+            items: const <Widget>[
               Icon(Icons.dashboard, size: 30, color: Colors.white,),
               Icon(Icons.computer, size: 30, color: Colors.white,),
               Icon(Icons.person, size: 30, color: Colors.white,),

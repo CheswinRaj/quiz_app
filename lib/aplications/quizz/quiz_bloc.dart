@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
@@ -22,7 +24,10 @@ final IQuizRepo _quizRepo ;
     on<_changeAnswer>(_onChangeAnswer);
     on<_changeDisplayQuestion>(_onChangeDisplayQuestion);
     on<_initialData>(_onInitialData);
-    on<_canPageChange>(_onCanPageChange);
+    on<_completedQuestion>(_onCompletedQuestion);
+    on<_stopTest>(_onStopTest);
+    on<_saveData>(_onSaveData);
+
 
 
   }
@@ -31,13 +36,13 @@ final IQuizRepo _quizRepo ;
   {
    List<String>? tempAnswer=
    // List.filled(questions.length,"");
-   List<String>.generate(questions.length, (index) => "");
+   List<String>.generate(state.hiveQuestions.length, (index) => "");
    List<bool> isDisplayPlay=
    // List.filled(questions.length,false);
-   List<bool>.generate(questions.length, (index) => false);
+   List<bool>.generate(state.hiveQuestions.length, (index) => false);
    isDisplayPlay[0]=true;
      emit(state.copyWith(answers: tempAnswer,isStarted: true,
-         isDisplayAvaiable: isDisplayPlay,listTotalCount:isDisplayPlay.length));
+         isDisplayAvaiable: isDisplayPlay,listTotalCount:isDisplayPlay.length,canPageChange:false));
   }
 void _onChangeAnswer(
     _changeAnswer event, Emitter<QuizState> emit)
@@ -82,10 +87,22 @@ void _onInitialData(
  // print(Students);
     emit(state.copyWith( hiveAnswers: Answers,hiveQuestions: Questions,hiveStudents: Students));
   }
-void _onCanPageChange(
-    _canPageChange event, Emitter<QuizState> emit)async{
-  emit(state.copyWith(canPageChange: event.canit));
+void _onCompletedQuestion(
+    _completedQuestion event, Emitter<QuizState> emit)async{
+  emit(state.copyWith(finishedQuestion: event.value));
   }
+void _onStopTest(
+    _stopTest event, Emitter<QuizState> emit)async{
+  emit(state.copyWith(isStarted: false,canPageChange:true));
+}
+void _onSaveData(
+    _saveData event, Emitter<QuizState> emit)async{
+  emit(state.copyWith(
+      finishedQuestion: 0
+     ));
+}
+
+
 }
 
 
