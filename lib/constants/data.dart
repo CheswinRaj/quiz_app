@@ -16,17 +16,17 @@ List<QuestionModel> questions = [
     'Which flies a green, white, and orange (in that order) tricolor flag? ',
     AnswerChoices: ["Ireland", "Ivory Coast", "Italy"],
   ),
-  // QuestionModel(
-  //   id: 3,
-  //   question: 'What company makes the Xperia model of smartphone?',
-  //   AnswerChoices: ["Samsung", "Sony", "Nokia"],
-  // ),
-  // QuestionModel(
-  //   id: 4,
-  //   question: 'Which city is home to the Brandenburg Gate?',
-  //   AnswerChoices: ["Vienna", "Zurich", "Berlin"],
-  //
-  // ),
+  QuestionModel(
+    id: 3,
+    question: 'What company makes the Xperia model of smartphone?',
+    AnswerChoices: ["Samsung", "Sony", "Nokia"],
+  ),
+  QuestionModel(
+    id: 4,
+    question: 'Which city is home to the Brandenburg Gate?',
+    AnswerChoices: ["Vienna", "Zurich", "Berlin"],
+
+  ),
   // QuestionModel(
   //   id: 5,
   //   question: 'Which of the following is NOT a fruit?',
