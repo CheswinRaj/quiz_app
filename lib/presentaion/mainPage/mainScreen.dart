@@ -20,11 +20,10 @@ class _MainScreenState extends State<MainScreen> {
   int _page = 0;
 
   List<Widget>pages = [Dashboard(), Exam(), Account()];
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
     return BlocBuilder<QuizBloc, QuizState>(
       builder: (context, state) {
         return Scaffold(

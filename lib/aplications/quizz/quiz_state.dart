@@ -11,9 +11,11 @@ class QuizState with _$QuizState {
     required int presentCount,
     required List<QuestionModel> hiveQuestions,
     required List<Anserchoicemodel> hiveAnswers,
-    required List<StudentDetaileModel>hiveStudents,
+    required List<StudentDetaileModel> hiveStudents,
     required bool canPageChange,
     required int finishedQuestion,
+    required StudentDetaileModel? loginDetail,
+    required List<StudentAnswerModel?> StudentSelectAnswerDetail,
   }) = _QuizState;
 
   factory QuizState.initial() {
@@ -21,9 +23,16 @@ class QuizState with _$QuizState {
       isLoading: true,
       isStarted: false,
       answers: [],
-      isDisplayAvaiable: [], listTotalCount: 0,presentCount:1, hiveQuestions: [], hiveAnswers: [], hiveStudents: [],
-      canPageChange: true, finishedQuestion: 0,
-
+      isDisplayAvaiable: [],
+      listTotalCount: 0,
+      presentCount: 1,
+      hiveQuestions: [],
+      hiveAnswers: [],
+      hiveStudents: [],
+      canPageChange: true,
+      finishedQuestion: 0,
+      loginDetail: null,
+      StudentSelectAnswerDetail: [],
     );
   }
 }

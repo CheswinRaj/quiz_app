@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
+      BlocProvider.of<QuizBloc>(context).add(const QuizEvent.initialData());
     return Scaffold(
       backgroundColor: Colors.black,
       body: LayoutBuilder(
@@ -46,12 +46,15 @@ class LoginScreen extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () async {
                         try {
+                          print(state.hiveStudents);
                           final data = state.hiveStudents.firstWhere(
                                 (element) => element.name == _loginController.text,
 
                           );
-                          print(data.password);
+                          print("hello ${data.mobileNummber}");
                           if ((data.password).toString() == _passwordController.text) {
+                            BlocProvider.of<QuizBloc>(context).add( QuizEvent.saveLogin(login: data));
+
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) => MainScreen()),

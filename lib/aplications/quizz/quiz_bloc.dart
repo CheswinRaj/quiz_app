@@ -11,6 +11,7 @@ import '../../domain/login/models/student/studentDetail.dart';
 import '../../domain/quiz/i_quiz_repo.dart';
 import '../../domain/quiz/models/answerChoiceModel/anserChoiceModel.dart';
 import '../../domain/quiz/models/questionsModel/quiestionModel.dart';
+import '../../domain/quiz/models/studentAnswerModel/studentAnnserModel.dart';
 
 part 'quiz_event.dart';
 part 'quiz_state.dart';
@@ -27,6 +28,7 @@ final IQuizRepo _quizRepo ;
     on<_completedQuestion>(_onCompletedQuestion);
     on<_stopTest>(_onStopTest);
     on<_saveData>(_onSaveData);
+    on<_saveLogin>(_onSaveLogin);
 
 
 
@@ -35,25 +37,31 @@ final IQuizRepo _quizRepo ;
       _Started event, Emitter<QuizState> emit)
   {
    List<String>? tempAnswer=
-   // List.filled(questions.length,"");
    List<String>.generate(state.hiveQuestions.length, (index) => "");
+   List<StudentAnswerModel?> anserList=
+   List<StudentAnswerModel?>.generate(state.hiveQuestions.length, (index) => null);
    List<bool> isDisplayPlay=
-   // List.filled(questions.length,false);
    List<bool>.generate(state.hiveQuestions.length, (index) => false);
    isDisplayPlay[0]=true;
-     emit(state.copyWith(answers: tempAnswer,isStarted: true,
-         isDisplayAvaiable: isDisplayPlay,listTotalCount:isDisplayPlay.length,canPageChange:false));
+     emit(state.copyWith(isStarted: true,
+         isDisplayAvaiable: isDisplayPlay,listTotalCount:isDisplayPlay.length,canPageChange:false,StudentSelectAnswerDetail:anserList,answers: tempAnswer));
   }
 void _onChangeAnswer(
     _changeAnswer event, Emitter<QuizState> emit)
-{
-  final preAnswer = state.answers;
-  final currentAnswer = List<String>.from(preAnswer!); // Create a modifiable copy
-  print("pre ${state.answers}");
+{  final preAnswer1 = state.answers;
+  final preAnswer = state.StudentSelectAnswerDetail;
+  final currentAnswer = List<StudentAnswerModel?>.from(preAnswer!);
+  // Create a modifiable copy
+final currentAnswer1 = List<String>.from(preAnswer1!); // Create a modifiable copy
+
+print("pre ${state.StudentSelectAnswerDetail}");
+print("pre ${state.answers}");
   final index = event.index;
   currentAnswer[index] = event.answer;
+  currentAnswer1[index] = event.value;
   print(currentAnswer);
-  emit(state.copyWith(answers: currentAnswer));
+print(currentAnswer1);
+  emit(state.copyWith(StudentSelectAnswerDetail: currentAnswer,answers: currentAnswer1));
 }
 
 void _onChangeDisplayQuestion(
@@ -100,7 +108,14 @@ void _onSaveData(
   emit(state.copyWith(
       finishedQuestion: 0
      ));
-}
+
+
+  }
+  void _onSaveLogin(_saveLogin event, Emitter<QuizState> emit)async {
+    emit(state.copyWith(loginDetail: event.login));
+    // List<QuestionModel> Questions;
+    // Box  localBox = Hive.box('quiz_app');
+  }
 
 
 }
