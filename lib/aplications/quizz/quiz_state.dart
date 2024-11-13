@@ -16,6 +16,7 @@ class QuizState with _$QuizState {
     required int finishedQuestion,
     required StudentDetaileModel? loginDetail,
     required List<StudentAnswerModel?> StudentSelectAnswerDetail,
+    required Result? pieResult
   }) = _QuizState;
 
   factory QuizState.initial() {
@@ -32,7 +33,7 @@ class QuizState with _$QuizState {
       canPageChange: true,
       finishedQuestion: 0,
       loginDetail: null,
-      StudentSelectAnswerDetail: [],
+      StudentSelectAnswerDetail: [], pieResult: null,
     );
   }
 }

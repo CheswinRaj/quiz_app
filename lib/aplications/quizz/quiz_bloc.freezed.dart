@@ -28,6 +28,7 @@ mixin _$QuizEvent {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +42,7 @@ mixin _$QuizEvent {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +56,7 @@ mixin _$QuizEvent {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +71,7 @@ mixin _$QuizEvent {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +84,7 @@ mixin _$QuizEvent {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +97,7 @@ mixin _$QuizEvent {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,6 +168,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return started();
   }
@@ -178,6 +185,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return started?.call();
   }
@@ -194,6 +202,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -214,6 +223,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return started(this);
   }
@@ -229,6 +239,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return started?.call(this);
   }
@@ -244,6 +255,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -307,6 +319,7 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return changeDisplayQuestion();
   }
@@ -323,6 +336,7 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return changeDisplayQuestion?.call();
   }
@@ -339,6 +353,7 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (changeDisplayQuestion != null) {
@@ -359,6 +374,7 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return changeDisplayQuestion(this);
   }
@@ -374,6 +390,7 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return changeDisplayQuestion?.call(this);
   }
@@ -389,6 +406,7 @@ class _$changeDisplayQuestionImpl implements _changeDisplayQuestion {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (changeDisplayQuestion != null) {
@@ -493,6 +511,7 @@ class _$changeAnswerImpl implements _changeAnswer {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return changeAnswer(index, answer, value);
   }
@@ -509,6 +528,7 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return changeAnswer?.call(index, answer, value);
   }
@@ -525,6 +545,7 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -545,6 +566,7 @@ class _$changeAnswerImpl implements _changeAnswer {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return changeAnswer(this);
   }
@@ -560,6 +582,7 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return changeAnswer?.call(this);
   }
@@ -575,6 +598,7 @@ class _$changeAnswerImpl implements _changeAnswer {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (changeAnswer != null) {
@@ -646,6 +670,7 @@ class _$initialDataImpl implements _initialData {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return initialData();
   }
@@ -662,6 +687,7 @@ class _$initialDataImpl implements _initialData {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return initialData?.call();
   }
@@ -678,6 +704,7 @@ class _$initialDataImpl implements _initialData {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (initialData != null) {
@@ -698,6 +725,7 @@ class _$initialDataImpl implements _initialData {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return initialData(this);
   }
@@ -713,6 +741,7 @@ class _$initialDataImpl implements _initialData {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return initialData?.call(this);
   }
@@ -728,6 +757,7 @@ class _$initialDataImpl implements _initialData {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (initialData != null) {
@@ -816,6 +846,7 @@ class _$completedQuestionImpl implements _completedQuestion {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return completedQuestion(value);
   }
@@ -832,6 +863,7 @@ class _$completedQuestionImpl implements _completedQuestion {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return completedQuestion?.call(value);
   }
@@ -848,6 +880,7 @@ class _$completedQuestionImpl implements _completedQuestion {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (completedQuestion != null) {
@@ -868,6 +901,7 @@ class _$completedQuestionImpl implements _completedQuestion {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return completedQuestion(this);
   }
@@ -883,6 +917,7 @@ class _$completedQuestionImpl implements _completedQuestion {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return completedQuestion?.call(this);
   }
@@ -898,6 +933,7 @@ class _$completedQuestionImpl implements _completedQuestion {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (completedQuestion != null) {
@@ -965,6 +1001,7 @@ class _$stopTestImpl implements _stopTest {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return stopTest();
   }
@@ -981,6 +1018,7 @@ class _$stopTestImpl implements _stopTest {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return stopTest?.call();
   }
@@ -997,6 +1035,7 @@ class _$stopTestImpl implements _stopTest {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (stopTest != null) {
@@ -1017,6 +1056,7 @@ class _$stopTestImpl implements _stopTest {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return stopTest(this);
   }
@@ -1032,6 +1072,7 @@ class _$stopTestImpl implements _stopTest {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return stopTest?.call(this);
   }
@@ -1047,6 +1088,7 @@ class _$stopTestImpl implements _stopTest {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (stopTest != null) {
@@ -1108,6 +1150,7 @@ class _$saveDataImpl implements _saveData {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return saveData();
   }
@@ -1124,6 +1167,7 @@ class _$saveDataImpl implements _saveData {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return saveData?.call();
   }
@@ -1140,6 +1184,7 @@ class _$saveDataImpl implements _saveData {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (saveData != null) {
@@ -1160,6 +1205,7 @@ class _$saveDataImpl implements _saveData {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return saveData(this);
   }
@@ -1175,6 +1221,7 @@ class _$saveDataImpl implements _saveData {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return saveData?.call(this);
   }
@@ -1190,6 +1237,7 @@ class _$saveDataImpl implements _saveData {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (saveData != null) {
@@ -1277,6 +1325,7 @@ class _$saveLoginImpl implements _saveLogin {
     required TResult Function() stopTest,
     required TResult Function() saveData,
     required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
   }) {
     return saveLogin(login);
   }
@@ -1293,6 +1342,7 @@ class _$saveLoginImpl implements _saveLogin {
     TResult? Function()? stopTest,
     TResult? Function()? saveData,
     TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
   }) {
     return saveLogin?.call(login);
   }
@@ -1309,6 +1359,7 @@ class _$saveLoginImpl implements _saveLogin {
     TResult Function()? stopTest,
     TResult Function()? saveData,
     TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
     required TResult orElse(),
   }) {
     if (saveLogin != null) {
@@ -1329,6 +1380,7 @@ class _$saveLoginImpl implements _saveLogin {
     required TResult Function(_stopTest value) stopTest,
     required TResult Function(_saveData value) saveData,
     required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
   }) {
     return saveLogin(this);
   }
@@ -1344,6 +1396,7 @@ class _$saveLoginImpl implements _saveLogin {
     TResult? Function(_stopTest value)? stopTest,
     TResult? Function(_saveData value)? saveData,
     TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
   }) {
     return saveLogin?.call(this);
   }
@@ -1359,6 +1412,7 @@ class _$saveLoginImpl implements _saveLogin {
     TResult Function(_stopTest value)? stopTest,
     TResult Function(_saveData value)? saveData,
     TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
     required TResult orElse(),
   }) {
     if (saveLogin != null) {
@@ -1379,6 +1433,155 @@ abstract class _saveLogin implements QuizEvent {
 }
 
 /// @nodoc
+abstract class _$$getStudentResultImplCopyWith<$Res> {
+  factory _$$getStudentResultImplCopyWith(_$getStudentResultImpl value,
+          $Res Function(_$getStudentResultImpl) then) =
+      __$$getStudentResultImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$getStudentResultImplCopyWithImpl<$Res>
+    extends _$QuizEventCopyWithImpl<$Res, _$getStudentResultImpl>
+    implements _$$getStudentResultImplCopyWith<$Res> {
+  __$$getStudentResultImplCopyWithImpl(_$getStudentResultImpl _value,
+      $Res Function(_$getStudentResultImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$getStudentResultImpl implements _getStudentResult {
+  const _$getStudentResultImpl();
+
+  @override
+  String toString() {
+    return 'QuizEvent.getStudentResult()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$getStudentResultImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() changeDisplayQuestion,
+    required TResult Function(
+            int index, StudentAnswerModel answer, String value)
+        changeAnswer,
+    required TResult Function() initialData,
+    required TResult Function(int value) completedQuestion,
+    required TResult Function() stopTest,
+    required TResult Function() saveData,
+    required TResult Function(StudentDetaileModel login) saveLogin,
+    required TResult Function() getStudentResult,
+  }) {
+    return getStudentResult();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? changeDisplayQuestion,
+    TResult? Function(int index, StudentAnswerModel answer, String value)?
+        changeAnswer,
+    TResult? Function()? initialData,
+    TResult? Function(int value)? completedQuestion,
+    TResult? Function()? stopTest,
+    TResult? Function()? saveData,
+    TResult? Function(StudentDetaileModel login)? saveLogin,
+    TResult? Function()? getStudentResult,
+  }) {
+    return getStudentResult?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? changeDisplayQuestion,
+    TResult Function(int index, StudentAnswerModel answer, String value)?
+        changeAnswer,
+    TResult Function()? initialData,
+    TResult Function(int value)? completedQuestion,
+    TResult Function()? stopTest,
+    TResult Function()? saveData,
+    TResult Function(StudentDetaileModel login)? saveLogin,
+    TResult Function()? getStudentResult,
+    required TResult orElse(),
+  }) {
+    if (getStudentResult != null) {
+      return getStudentResult();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_changeDisplayQuestion value)
+        changeDisplayQuestion,
+    required TResult Function(_changeAnswer value) changeAnswer,
+    required TResult Function(_initialData value) initialData,
+    required TResult Function(_completedQuestion value) completedQuestion,
+    required TResult Function(_stopTest value) stopTest,
+    required TResult Function(_saveData value) saveData,
+    required TResult Function(_saveLogin value) saveLogin,
+    required TResult Function(_getStudentResult value) getStudentResult,
+  }) {
+    return getStudentResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_changeDisplayQuestion value)? changeDisplayQuestion,
+    TResult? Function(_changeAnswer value)? changeAnswer,
+    TResult? Function(_initialData value)? initialData,
+    TResult? Function(_completedQuestion value)? completedQuestion,
+    TResult? Function(_stopTest value)? stopTest,
+    TResult? Function(_saveData value)? saveData,
+    TResult? Function(_saveLogin value)? saveLogin,
+    TResult? Function(_getStudentResult value)? getStudentResult,
+  }) {
+    return getStudentResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_changeDisplayQuestion value)? changeDisplayQuestion,
+    TResult Function(_changeAnswer value)? changeAnswer,
+    TResult Function(_initialData value)? initialData,
+    TResult Function(_completedQuestion value)? completedQuestion,
+    TResult Function(_stopTest value)? stopTest,
+    TResult Function(_saveData value)? saveData,
+    TResult Function(_saveLogin value)? saveLogin,
+    TResult Function(_getStudentResult value)? getStudentResult,
+    required TResult orElse(),
+  }) {
+    if (getStudentResult != null) {
+      return getStudentResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getStudentResult implements QuizEvent {
+  const factory _getStudentResult() = _$getStudentResultImpl;
+}
+
+/// @nodoc
 mixin _$QuizState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isStarted => throw _privateConstructorUsedError;
@@ -1395,6 +1598,7 @@ mixin _$QuizState {
   StudentDetaileModel? get loginDetail => throw _privateConstructorUsedError;
   List<StudentAnswerModel?> get StudentSelectAnswerDetail =>
       throw _privateConstructorUsedError;
+  Result? get pieResult => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuizStateCopyWith<QuizState> get copyWith =>
@@ -1419,7 +1623,8 @@ abstract class $QuizStateCopyWith<$Res> {
       bool canPageChange,
       int finishedQuestion,
       StudentDetaileModel? loginDetail,
-      List<StudentAnswerModel?> StudentSelectAnswerDetail});
+      List<StudentAnswerModel?> StudentSelectAnswerDetail,
+      Result? pieResult});
 }
 
 /// @nodoc
@@ -1448,6 +1653,7 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
     Object? finishedQuestion = null,
     Object? loginDetail = freezed,
     Object? StudentSelectAnswerDetail = null,
+    Object? pieResult = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1502,6 +1708,10 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
           ? _value.StudentSelectAnswerDetail
           : StudentSelectAnswerDetail // ignore: cast_nullable_to_non_nullable
               as List<StudentAnswerModel?>,
+      pieResult: freezed == pieResult
+          ? _value.pieResult
+          : pieResult // ignore: cast_nullable_to_non_nullable
+              as Result?,
     ) as $Val);
   }
 }
@@ -1527,7 +1737,8 @@ abstract class _$$QuizStateImplCopyWith<$Res>
       bool canPageChange,
       int finishedQuestion,
       StudentDetaileModel? loginDetail,
-      List<StudentAnswerModel?> StudentSelectAnswerDetail});
+      List<StudentAnswerModel?> StudentSelectAnswerDetail,
+      Result? pieResult});
 }
 
 /// @nodoc
@@ -1554,6 +1765,7 @@ class __$$QuizStateImplCopyWithImpl<$Res>
     Object? finishedQuestion = null,
     Object? loginDetail = freezed,
     Object? StudentSelectAnswerDetail = null,
+    Object? pieResult = freezed,
   }) {
     return _then(_$QuizStateImpl(
       isLoading: null == isLoading
@@ -1608,6 +1820,10 @@ class __$$QuizStateImplCopyWithImpl<$Res>
           ? _value._StudentSelectAnswerDetail
           : StudentSelectAnswerDetail // ignore: cast_nullable_to_non_nullable
               as List<StudentAnswerModel?>,
+      pieResult: freezed == pieResult
+          ? _value.pieResult
+          : pieResult // ignore: cast_nullable_to_non_nullable
+              as Result?,
     ));
   }
 }
@@ -1628,7 +1844,8 @@ class _$QuizStateImpl implements _QuizState {
       required this.canPageChange,
       required this.finishedQuestion,
       required this.loginDetail,
-      required final List<StudentAnswerModel?> StudentSelectAnswerDetail})
+      required final List<StudentAnswerModel?> StudentSelectAnswerDetail,
+      required this.pieResult})
       : _answers = answers,
         _isDisplayAvaiable = isDisplayAvaiable,
         _hiveQuestions = hiveQuestions,
@@ -1703,8 +1920,11 @@ class _$QuizStateImpl implements _QuizState {
   }
 
   @override
+  final Result? pieResult;
+
+  @override
   String toString() {
-    return 'QuizState(isLoading: $isLoading, isStarted: $isStarted, answers: $answers, isDisplayAvaiable: $isDisplayAvaiable, listTotalCount: $listTotalCount, presentCount: $presentCount, hiveQuestions: $hiveQuestions, hiveAnswers: $hiveAnswers, hiveStudents: $hiveStudents, canPageChange: $canPageChange, finishedQuestion: $finishedQuestion, loginDetail: $loginDetail, StudentSelectAnswerDetail: $StudentSelectAnswerDetail)';
+    return 'QuizState(isLoading: $isLoading, isStarted: $isStarted, answers: $answers, isDisplayAvaiable: $isDisplayAvaiable, listTotalCount: $listTotalCount, presentCount: $presentCount, hiveQuestions: $hiveQuestions, hiveAnswers: $hiveAnswers, hiveStudents: $hiveStudents, canPageChange: $canPageChange, finishedQuestion: $finishedQuestion, loginDetail: $loginDetail, StudentSelectAnswerDetail: $StudentSelectAnswerDetail, pieResult: $pieResult)';
   }
 
   @override
@@ -1736,7 +1956,9 @@ class _$QuizStateImpl implements _QuizState {
             (identical(other.loginDetail, loginDetail) ||
                 other.loginDetail == loginDetail) &&
             const DeepCollectionEquality().equals(
-                other._StudentSelectAnswerDetail, _StudentSelectAnswerDetail));
+                other._StudentSelectAnswerDetail, _StudentSelectAnswerDetail) &&
+            (identical(other.pieResult, pieResult) ||
+                other.pieResult == pieResult));
   }
 
   @override
@@ -1754,7 +1976,8 @@ class _$QuizStateImpl implements _QuizState {
       canPageChange,
       finishedQuestion,
       loginDetail,
-      const DeepCollectionEquality().hash(_StudentSelectAnswerDetail));
+      const DeepCollectionEquality().hash(_StudentSelectAnswerDetail),
+      pieResult);
 
   @JsonKey(ignore: true)
   @override
@@ -1765,20 +1988,20 @@ class _$QuizStateImpl implements _QuizState {
 
 abstract class _QuizState implements QuizState {
   const factory _QuizState(
-          {required final bool isLoading,
-          required final bool isStarted,
-          required final List<String>? answers,
-          required final List<bool> isDisplayAvaiable,
-          required final int listTotalCount,
-          required final int presentCount,
-          required final List<QuestionModel> hiveQuestions,
-          required final List<Anserchoicemodel> hiveAnswers,
-          required final List<StudentDetaileModel> hiveStudents,
-          required final bool canPageChange,
-          required final int finishedQuestion,
-          required final StudentDetaileModel? loginDetail,
-          required final List<StudentAnswerModel?> StudentSelectAnswerDetail}) =
-      _$QuizStateImpl;
+      {required final bool isLoading,
+      required final bool isStarted,
+      required final List<String>? answers,
+      required final List<bool> isDisplayAvaiable,
+      required final int listTotalCount,
+      required final int presentCount,
+      required final List<QuestionModel> hiveQuestions,
+      required final List<Anserchoicemodel> hiveAnswers,
+      required final List<StudentDetaileModel> hiveStudents,
+      required final bool canPageChange,
+      required final int finishedQuestion,
+      required final StudentDetaileModel? loginDetail,
+      required final List<StudentAnswerModel?> StudentSelectAnswerDetail,
+      required final Result? pieResult}) = _$QuizStateImpl;
 
   @override
   bool get isLoading;
@@ -1806,6 +2029,8 @@ abstract class _QuizState implements QuizState {
   StudentDetaileModel? get loginDetail;
   @override
   List<StudentAnswerModel?> get StudentSelectAnswerDetail;
+  @override
+  Result? get pieResult;
   @override
   @JsonKey(ignore: true)
   _$$QuizStateImplCopyWith<_$QuizStateImpl> get copyWith =>

@@ -10,5 +10,6 @@ class QuizEvent with _$QuizEvent {
   const factory QuizEvent.stopTest() = _stopTest;
   const factory QuizEvent.saveData() = _saveData;
   const factory QuizEvent.saveLogin({required StudentDetaileModel login}) = _saveLogin;
+  const factory QuizEvent.getStudentResult() = _getStudentResult;
 
 }
