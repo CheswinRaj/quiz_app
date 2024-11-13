@@ -21,7 +21,7 @@ class Dashboard extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: BlocBuilder<QuizBloc, QuizState>(
                 builder: (context, state) {
-                  return state.pieResult == null
+                  return state.pieResult != null
                       ? Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
