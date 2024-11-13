@@ -30,13 +30,14 @@ class _ExamState extends State<Exam> {
         nextQuestions();
       }
     });
-    totalFinished.value = (totalFinished.value+1);
-    BlocProvider.of<QuizBloc>(context).add(QuizEvent.completedQuestion(value:totalFinished.value ));
+
   }
 
   void nextQuestions() {
     _timer.cancel();
     counter.value = 5;
+    totalFinished.value = (totalFinished.value+1);
+    BlocProvider.of<QuizBloc>(context).add(QuizEvent.completedQuestion(value:totalFinished.value ));
     BlocProvider.of<QuizBloc>(context).add(const QuizEvent.changeDisplayQuestion());
     _startQuizTimer();
   }
@@ -55,13 +56,15 @@ class _ExamState extends State<Exam> {
     return Scaffold(
       body: BlocConsumer<QuizBloc, QuizState>(
         listener: (BuildContext context, QuizState state) {
-          if (state.presentCount > state.listTotalCount) {
-            _timer.cancel();
-          }
-          if(state.hiveQuestions.length==state.finishedQuestion&&state.isStarted){
+          // if (state.presentCount == state.listTotalCount) {
+          //   _timer.cancel();
+          // }
+          if(state.hiveQuestions.length+2==state.finishedQuestion+1&&state.isStarted){
+            print("hivequestrion  ${state.hiveQuestions.length}, finshed : ${state.finishedQuestion+1}");
+
             _timer.cancel();
             BlocProvider.of<QuizBloc>(context).add(const QuizEvent.saveData());
-
+            BlocProvider.of<QuizBloc>(context).add(const QuizEvent.getStudentResult());
           }
         },
         builder: (context, state) {
@@ -212,6 +215,7 @@ class _ExamState extends State<Exam> {
                         child: InkWell(
                           onTap: () {
                             BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
+                            totalFinished.value=1;
                             counter.value=5;
                             _startQuizTimer();
                           },

@@ -27,6 +27,8 @@ void main()async {
   await quizBox.put("question", questions);
   await quizBox.put("studentDetail", students);
   await quizBox.put("answer", answers);
+  await quizBox.put("studentsAnswer", []);
+
   runApp( const MyApp());
 }
 
