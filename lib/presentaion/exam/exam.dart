@@ -6,6 +6,8 @@ import 'package:quiz/aplications/quizz/quiz_bloc.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
 import '../../constants/data.dart';
+import '../../domain/login/models/student/studentDetail.dart';
+import '../../domain/quiz/models/studentAnswerModel/studentAnnserModel.dart';
 
 class Exam extends StatefulWidget {
   const Exam({super.key});
@@ -17,25 +19,24 @@ class Exam extends StatefulWidget {
 class _ExamState extends State<Exam> {
   late Timer _timer;
 
-  final ValueNotifier<int> counter = ValueNotifier<int>(30);
+  final ValueNotifier<int> counter = ValueNotifier<int>(5);
   final ValueNotifier<int> totalFinished = ValueNotifier<int>(1);
   void _startQuizTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (counter.value > 0) {
-
         counter.value = (counter.value-1);
-        totalFinished.value = (totalFinished.value+1);
-        BlocProvider.of<QuizBloc>(context).add(QuizEvent.completedQuestion(value:totalFinished.value ));
         print(counter.value);
       } else {
         nextQuestions();
       }
     });
+    totalFinished.value = (totalFinished.value+1);
+    BlocProvider.of<QuizBloc>(context).add(QuizEvent.completedQuestion(value:totalFinished.value ));
   }
 
   void nextQuestions() {
     _timer.cancel();
-    counter.value = 30;
+    counter.value = 5;
     BlocProvider.of<QuizBloc>(context).add(const QuizEvent.changeDisplayQuestion());
     _startQuizTimer();
   }
@@ -44,6 +45,8 @@ class _ExamState extends State<Exam> {
   @override
   void dispose() {
     _timer.cancel();
+    // counter.dispose();
+    // totalFinished.dispose();
     super.dispose();
   }
 
@@ -80,6 +83,7 @@ class _ExamState extends State<Exam> {
                                 // scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, count) {
                                   List<String>? choice = state.answers;
+                                   StudentDetaileModel? student=state.loginDetail;
                                   return StickyHeader(
                                     header: Padding(
                                       padding: const EdgeInsets.only(
@@ -146,7 +150,9 @@ class _ExamState extends State<Exam> {
                                                               onChanged: (value) {
                                                                 // print(count);
                                                                 print(state.answers?[count]);
-                                                                BlocProvider.of<QuizBloc>(context).add(QuizEvent.changeAnswer(index: count, answer: value));
+                                                                BlocProvider.of<QuizBloc>(context).add(QuizEvent.changeAnswer(index: count, answer: StudentAnswerModel(
+                                                                  count,student!.id,count,index
+                                                                ), value: value!));
                                                               },
                                                               title: Text(
                                                                 "${state.hiveQuestions[count].AnswerChoices[index]}",
@@ -182,7 +188,7 @@ class _ExamState extends State<Exam> {
                             onTap: (){
                               // BlocProvider.of<QuizBloc>(context).add(const QuizEvent.canPageChange(canit: true));
                               BlocProvider.of<QuizBloc>(context).add(const QuizEvent.stopTest());
-_timer.cancel();
+                       _timer.cancel();
                             },
                             child: Container(
                               height: height * .04,
@@ -205,10 +211,9 @@ _timer.cancel();
                       child: Center(
                         child: InkWell(
                           onTap: () {
-
-
-                            _startQuizTimer();
                             BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
+                            counter.value=5;
+                            _startQuizTimer();
                           },
                           child: Container(
                             height: height * .05,
