@@ -19,7 +19,7 @@ class Exam extends StatefulWidget {
 class _ExamState extends State<Exam> {
   late Timer _timer;
 
-  final ValueNotifier<int> counter = ValueNotifier<int>(5);
+  final ValueNotifier<int> counter = ValueNotifier<int>(30);
   final ValueNotifier<int> totalFinished = ValueNotifier<int>(1);
   void _startQuizTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -35,7 +35,7 @@ class _ExamState extends State<Exam> {
 
   void nextQuestions() {
     _timer.cancel();
-    counter.value = 5;
+    counter.value = 30;
     totalFinished.value = (totalFinished.value+1);
     BlocProvider.of<QuizBloc>(context).add(QuizEvent.completedQuestion(value:totalFinished.value ));
     BlocProvider.of<QuizBloc>(context).add(const QuizEvent.changeDisplayQuestion());
@@ -216,7 +216,7 @@ class _ExamState extends State<Exam> {
                           onTap: () {
                             BlocProvider.of<QuizBloc>(context).add(const QuizEvent.started());
                             totalFinished.value=1;
-                            counter.value=5;
+                            counter.value=30;
                             _startQuizTimer();
                           },
                           child: Container(
